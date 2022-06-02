@@ -1,0 +1,5 @@
+<button (click)="retrieveDataForComponents()">Click Me for data</button>
+<div *ngIf="(dataForComponents$ | async) as data">
+  <app-nasa-image-component *ngIf="data.url" [imageURI]="data.url"></app-nasa-image-component>
+  <app-nasa-explanation-component *ngIf="data.explanation" [explanation]="data.explanation"></app-nasa-explanation-component>
+</div>
