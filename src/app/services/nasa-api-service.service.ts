@@ -11,6 +11,6 @@ export class NasaApiServiceService {
   constructor(private httpClient: HttpClient) { }
 
   getImageData(): Observable<PictureOfTheDay> {
-    return this.httpClient.get<PictureOfTheDay>("https://api.nasa.gov/planetary/apod?api_key=yAvjK1fEnxibIkkwk8zHGpd7WzCFLIEVv8bZtZei");
+    return this.httpClient.get<PictureOfTheDay>("https://jrlr3yszy3rp2wvaev7zmp5hh40bqhfc.lambda-url.us-east-1.on.aws/");
   }
 }
