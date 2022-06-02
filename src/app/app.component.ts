@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { PictureOfTheDay } from './models/picture-of-the-day.interface';
+import { NasaApiServiceService } from './services/nasa-api-service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'nasa-picture-of-the-day-component';
+  dataForComponents$: Observable<PictureOfTheDay> | undefined = undefined;
+  constructor(private nasaApiService: NasaApiServiceService) {
+    
+  }
+
+  retrieveDataForComponents() {
+    this.dataForComponents$ = this.nasaApiService.getImageData();
+  }
 }
