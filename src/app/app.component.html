@@ -1,5 +1,11 @@
-<button (click)="retrieveDataForComponents()">Click Me for data</button>
-<div *ngIf="(dataForComponents$ | async) as data">
-  <app-nasa-image-component *ngIf="data.url" [imageURI]="data.url"></app-nasa-image-component>
-  <app-nasa-explanation-component *ngIf="data.explanation" [explanation]="data.explanation"></app-nasa-explanation-component>
-</div>
+
+<mat-card>
+  <mat-card-header>
+    <p class="header-text">NASA Picture of the Day!</p>
+    <button mat-stroked-button color="secondary" (click)="retrieveDataForComponents()">View Image</button>
+  </mat-card-header>
+  <div *ngIf="(dataForComponents$ | async) as data">
+    <app-nasa-image-component *ngIf="data.url" [imageURI]="data.url"></app-nasa-image-component>
+    <app-nasa-explanation-component *ngIf="data.explanation" [explanation]="data.explanation"></app-nasa-explanation-component>
+  </div>
+</mat-card>

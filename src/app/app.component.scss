@@ -1,0 +1,19 @@
+@import '../my-custom-theme-definition';
+
+// IMPORT ONLY ONCE, AS ALL STYLES ARE BEING OUTPUT
+
+// Include non-theme styles for core.
+@include mat-core();
+
+// Include all theme styles for the components.
+@include angular-material-theme($my-custom-theme);
+
+mat-card-header {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.header-text {
+    padding-right: .5rem;
+}
