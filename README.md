@@ -2,26 +2,121 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
-## Development server
+## Display
+Here is how the web component is displayed:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![plot](./assets/demo.gif)
 
-## Code scaffolding
+## Installation
+    npm i nasa-picture-of-the-day
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
 
-## Build
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Testing out how our web component will render below:</h1>
+    <nasa-picture-of-the-day-component></nasa-picture-of-the-day-component>
+    <script src="node_modules/nasa-picture-of-the-day-component/build/nasa-picture-of-the-day-component.js"></script>
+</body>
+</html>
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Angular setup
+### AppModule Setup
+In the `app.module.ts` file, you must declare your *schema* to be custom:
 
-## Running unit tests
+```typescript
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] //this line here
+})
+```  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### angular.json Setup
+In the build section, add the `nasa-picture-of-the-day-component.js`:
 
-## Running end-to-end tests
+```jsonc
+"architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/test-angular",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": [
+                "node_modules/nasa-picture-of-the-day-component/build/nasa-picture-of-the-day-component.js"] // <- this line here
+          }
+```
+### HTML Example
+Here's an example of it being used in the `app.component.html`:
+```html
+<h1>This is my test angular application</h1>
+<nasa-picture-of-the-day-component></nasa-picture-of-the-day-component>
+```
+## React setup
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Wire up App.js
+```js
+import logo from './logo.svg';
+import './App.css';
+import 'nasa-picture-of-the-day-component/build/nasa-picture-of-the-day-component'; // this line here
 
-## Further help
+// <nasa-picture-of-the-day-component> defined in HTML below
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <nasa-picture-of-the-day-component></nasa-picture-of-the-day-component>
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## What does it do?
+
+It uses a public API to get the image of the day provided by [NASA](https://api.nasa.gov/).
+
+
+## NGXS for state management
+
+This project uses [NGXS](https://github.com/ngxs/store) for state management.
+

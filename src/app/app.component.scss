@@ -1,19 +1,21 @@
-@import '../my-custom-theme-definition';
-
-// IMPORT ONLY ONCE, AS ALL STYLES ARE BEING OUTPUT
-
-// Include non-theme styles for core.
-@include mat-core();
-
-// Include all theme styles for the components.
-@include angular-material-theme($my-custom-theme);
-
 mat-card-header {
     margin-bottom: 2rem;
     display: flex;
     justify-content: center;
 }
 
+mat-progress-spinner {
+    margin: 0 auto;
+}
+
+button {
+    color: #69f0ae;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .header-text {
+    color: #69f0ae;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
     padding-right: .5rem;
 }

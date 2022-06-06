@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { PictureOfTheDay } from './models/picture-of-the-day.interface';
-import { NasaApiServiceService } from './services/nasa-api-service.service';
+import { Actions } from './redux/actions/fetch-nasa-image-action';
+import { AppState } from './redux/state/AppState';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +11,12 @@ import { NasaApiServiceService } from './services/nasa-api-service.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  dataForComponents$: Observable<PictureOfTheDay> | undefined = undefined;
-  constructor(private nasaApiService: NasaApiServiceService) {
-    
-  }
+  @Select(AppState.pictureOfTheDay) dataForComponents$: Observable<PictureOfTheDay> | undefined;
+  @Select(AppState.loading) loading$: Observable<boolean> | undefined;
+  constructor(private store: Store) { }
 
   retrieveDataForComponents() {
-    this.dataForComponents$ = this.nasaApiService.getImageData();
+    this.store.dispatch(Actions.Loading);
+    this.store.dispatch(Actions.Get);
   }
 }

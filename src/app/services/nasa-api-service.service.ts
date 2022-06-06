@@ -6,7 +6,7 @@ import { PictureOfTheDay } from '../models/picture-of-the-day.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class NasaApiServiceService {
+export class NasaApiService {
 
   constructor(private httpClient: HttpClient) { }
 

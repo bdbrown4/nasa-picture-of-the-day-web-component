@@ -2,6 +2,7 @@ import { ApplicationRef, Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
@@ -9,6 +10,9 @@ import { NasaImageComponentComponent } from './components/nasa-image-component/n
 import { NasaExplanationComponentComponent } from './components/nasa-explanation-component/nasa-explanation-component.component';
 import { createCustomElement } from '@angular/elements';
 import { APP_BASE_HREF } from '@angular/common';
+import { NgxsModule } from '@ngxs/store';
+import { environment } from 'src/environments/environment';
+import { AppState } from "./redux/state/AppState";
 
 @NgModule({
   declarations: [
@@ -19,9 +23,13 @@ import { APP_BASE_HREF } from '@angular/common';
   imports: [
     BrowserModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule,
+    NgxsModule.forRoot([AppState], {
+      developmentMode: !environment.production
+    })
   ],
   providers: [{ provide: APP_BASE_HREF, useValue : '/' }],
   entryComponents: [AppComponent]
