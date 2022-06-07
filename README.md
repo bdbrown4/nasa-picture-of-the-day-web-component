@@ -8,7 +8,7 @@ Here is how the web component is displayed:
 ![plot](./assets/demo.gif)
 
 ## Installation
-    npm i nasa-picture-of-the-day
+    npm i nasa-picture-of-the-day-component
 
 ## Usage
 
