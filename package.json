@@ -1,6 +1,6 @@
 {
   "name": "nasa-picture-of-the-day-component",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,6 +9,11 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bdbrown4/nasa-picture-of-the-day-web-component.git"
+  },
+  "homepage": "https://github.com/bdbrown4/nasa-picture-of-the-day-web-component#readme",
   "dependencies": {
     "@angular/animations": "~13.2.0",
     "@angular/cdk": "^13.2.0",
