@@ -1,17 +1,30 @@
+
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+
 mat-card-header {
     margin-bottom: 2rem;
     display: flex;
     justify-content: center;
 }
 
-mat-progress-spinner {
-    margin: 0 auto;
+.button-weight {
+    font-weight: 600;
 }
 
-button {
-    color: #69f0ae;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+.loader {
+    margin: 0 auto;
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #69f0ae;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
 .header-text {
     color: #69f0ae;

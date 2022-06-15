@@ -2,7 +2,6 @@ import { ApplicationRef, Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule } from '@angular/material/button';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
@@ -23,10 +22,9 @@ import { AppState } from "./redux/state/AppState";
   imports: [
     BrowserModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
-    MatProgressSpinnerModule,
-    BrowserAnimationsModule,
     NgxsModule.forRoot([AppState], {
       developmentMode: !environment.production
     })

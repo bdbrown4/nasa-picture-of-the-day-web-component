@@ -1,5 +1,3 @@
-
-
 export namespace Actions {
     export class Get {
         static readonly type = '[NASA] Get Image of the Day';

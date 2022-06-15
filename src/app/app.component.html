@@ -2,13 +2,13 @@
 <mat-card>
   <mat-card-header>
     <p class="header-text">NASA Picture of the Day!</p>
-    <button mat-stroked-button color="secondary" (click)="retrieveDataForComponents()">View Image</button>
+    <button class="button-weight" mat-stroked-button color="accent" (click)="retrieveDataForComponents()">View Image</button>
   </mat-card-header>
   <div *ngIf="!(loading$ | async) && (dataForComponents$ | async) as data; else loading">
     <app-nasa-image-component *ngIf="data.url" [imageURI]="data.url"></app-nasa-image-component>
     <app-nasa-explanation-component *ngIf="data.explanation" [explanation]="data.explanation"></app-nasa-explanation-component>
   </div>
   <ng-template #loading>
-    <mat-progress-spinner color="accent" mode="indeterminate"></mat-progress-spinner>
+    <div class="loader"></div>
   </ng-template>
 </mat-card>
