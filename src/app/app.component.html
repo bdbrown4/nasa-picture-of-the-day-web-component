@@ -9,6 +9,8 @@
     <app-nasa-explanation-component *ngIf="data.explanation" [explanation]="data.explanation"></app-nasa-explanation-component>
   </div>
   <ng-template #loading>
-    <div class="loader"></div>
+    <svg>
+      <circle r="45" cx="50%" cy="50%" class="loader"></circle>
+    </svg>
   </ng-template>
 </mat-card>
